@@ -85,6 +85,25 @@ cpp_int chinese_remainder_theorem(const vector<cpp_int>& C_i, const vector<cpp_i
 
 }
 
+cpp_int root(cpp_int C, int e) {
+	cpp_int M_low = 0;
+	cpp_int M_high = C;
+	cpp_int C_mid;
+
+	while (M_low + 1 < M_high) {
+		C_mid = (M_high + M_low) / 2;
+		cpp_int temp = 1;
+		for (int i = 0; i < e; i++) {
+			temp = temp * C_mid;
+		}
+		if (temp > C) { M_high = C_mid; }
+		else if (temp < C) { M_low = C_mid; }
+		else { return C_mid; }
+	}
+
+	return M_low;
+}
+
 int main() {
 	int e = 5;
 
@@ -107,6 +126,8 @@ int main() {
 	vector<cpp_int> for_n_i = { n1, n2, n3, n4, n5 };
 
 	cpp_int C = chinese_remainder_theorem(for_C_i, for_n_i); 
+	cpp_int M_with_pad = root(C, e);
+
 
 
 }
