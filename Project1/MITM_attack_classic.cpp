@@ -133,7 +133,7 @@ int main(){
 	cout << "M (dec): " << M1 * M2 << endl;
 	cout << "M (hex): " << hex << M1 * M2 << endl;
 	cout << "Checking: C = (M1*M2)^e mod n = " << powm((M1 * M2), e, n) << endl;
-	cout << "Original C = " << C;
+	cout << "Original C = " << C << endl;
 
 	/*auto start2 = chrono::high_resolution_clock::now();
 	brute_force(n, e, C, l);
