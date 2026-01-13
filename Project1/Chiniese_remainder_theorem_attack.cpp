@@ -130,4 +130,16 @@ int main() {
 
 	cout << hex << M_with_pad << endl;
 
+	cpp_int check = 1;
+	for (int i = 0; i < e; i++) {
+		check = check * M_with_pad;
+	}
+
+	if (check == C) {
+		cout << "Succesful" << endl;
+	}
+	else {
+		cout << "Error" << endl;
+	}
+
 }
