@@ -59,6 +59,24 @@ cpp_int extended_euclid_alg(cpp_int N_i, cpp_int n_i) {
 	return M;
 }
 
+pair<vector<pair<cpp_int, cpp_int>>, vector<cpp_int>> form_pair(cpp_int n, cpp_int e, int l) {
+
+	vector<pair<cpp_int, cpp_int>> X;
+
+	vector<cpp_int> Te_converse;
+
+	for (int i = 1; i <= pow(2, (l / 2)); i++) {
+
+		cpp_int Te = powm(cpp_int(i), e, n);
+
+		X.push_back(make_pair(Te, i));
+
+		Te_converse.push_back(extended_euclid_alg(Te, n));
+	};
+
+	return make_pair(X, Te_converse);
+}
+
 int main(){
 	int l = 20;
 	cpp_int e("65537");
@@ -69,5 +87,6 @@ int main(){
 	vector<pair<cpp_int, cpp_int>> X;
 	vector<cpp_int> Te_converse;
 
+	auto info = form_pair(n, e, l); 
 
 }
