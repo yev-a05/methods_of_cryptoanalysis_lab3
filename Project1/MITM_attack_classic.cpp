@@ -89,4 +89,9 @@ int main(){
 
 	auto info = form_pair(n, e, l); 
 
+	X = info.first;
+	Te_converse = info.second;
+
+	cpp_int M1 = 0, M2 = 0; 
+
 }
