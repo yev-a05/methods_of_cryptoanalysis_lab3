@@ -39,3 +39,14 @@
 
 # debug information files
 *.dwo
+
+
+.vs/
+*.db
+*.opendb
+*.VC.db
+
+
+Debug/
+Release/
+x64/
