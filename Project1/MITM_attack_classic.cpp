@@ -5,6 +5,7 @@
 #include <sstream>
 #include <algorithm>
 #include <cmath>
+#include <chrono>
 #include <boost/multiprecision/cpp_int.hpp>
 
 using namespace std;
@@ -97,6 +98,8 @@ int main(){
 	vector<pair<cpp_int, cpp_int>> X;
 	vector<cpp_int> Te_converse;
 
+	auto start1 = chrono::high_resolution_clock::now();
+
 	auto info = form_pair(n, e, l); 
 
 	X = info.first;
@@ -123,9 +126,19 @@ int main(){
 
 	}
 
+	/*auto end1 = chrono::high_resolution_clock::now();
+	chrono::duration<double> diff1 = end1 - start1; 
+	cout << "Time MITM: " << diff1.count() << " s" << endl; */
+
 	cout << "M (dec): " << M1 * M2 << endl;
 	cout << "M (hex): " << hex << M1 * M2 << endl;
 	cout << "Checking: C = (M1*M2)^e mod n = " << powm((M1 * M2), e, n) << endl;
 	cout << "Original C = " << C;
+
+	/*auto start2 = chrono::high_resolution_clock::now();
+	brute_force(n, e, C, l);
+	auto end2 = chrono::high_resolution_clock::now();
+	chrono::duration<double> diff2 = end2 - start2;
+	cout << "Time brutforce: " << diff2.count() << " s" << endl;*/
 
 }
