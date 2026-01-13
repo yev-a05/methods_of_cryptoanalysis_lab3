@@ -128,6 +128,6 @@ int main() {
 	cpp_int C = chinese_remainder_theorem(for_C_i, for_n_i); 
 	cpp_int M_with_pad = root(C, e);
 
-
+	cout << hex << M_with_pad << endl;
 
 }
