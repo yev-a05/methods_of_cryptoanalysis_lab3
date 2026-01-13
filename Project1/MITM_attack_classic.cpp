@@ -94,4 +94,23 @@ int main(){
 
 	cpp_int M1 = 0, M2 = 0; 
 
+	for (int s = 1; s <= pow(2, (l / 2)); s++) {
+		cpp_int Cs = (C * Te_converse[s - 1]) % n;
+
+		for (int i = 0; i < X.size(); i++) {
+			if (X[i].first == Cs) {
+				M1 = s;
+				M2 = X[i].second;
+				break;
+			};
+		}
+
+		if (M1 != s && s == pow(2, (l / 2))) {
+			cout << "The plaintext was not defined.";
+		}
+
+		else if (M1 == s) { break; };
+
+	}
+
 }
