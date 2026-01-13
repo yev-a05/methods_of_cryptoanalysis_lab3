@@ -9,3 +9,8 @@
 
 using namespace std;
 using namespace boost::multiprecision;
+
+int main() {
+
+
+}
