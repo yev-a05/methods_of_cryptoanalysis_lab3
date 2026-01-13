@@ -59,6 +59,32 @@ cpp_int extended_euclid_alg(cpp_int N_i, cpp_int n_i) {
 	return M;
 }
 
+cpp_int chinese_remainder_theorem(const vector<cpp_int>& C_i, const vector<cpp_int>& n_i) {
+
+	cpp_int N = 1;
+	for (long long j = 0; j < n_i.size(); j++) {
+		N = N * n_i[j];
+	}
+	vector<cpp_int> N_i;
+	for (long long j = 0; j < n_i.size(); j++) {
+		N_i.push_back(N / n_i[j]);
+	}
+
+	vector<cpp_int> M_e;
+	for (long long j = 0; j < n_i.size(); j++) {
+		cpp_int M_i = extended_euclid_alg(N_i[j], n_i[j]);
+		M_e.push_back(M_i);
+	}
+
+	cpp_int C = 0;
+	for (long long j = 0; j < n_i.size(); j++) {
+		C = (C + (C_i[j] * N_i[j] * M_e[j])) % N;
+	}
+
+	return C;
+
+}
+
 int main() {
 	int e = 5;
 
@@ -79,6 +105,8 @@ int main() {
 
 	vector<cpp_int> for_C_i = { C1, C2, C3, C4, C5 }; 
 	vector<cpp_int> for_n_i = { n1, n2, n3, n4, n5 };
+
+	cpp_int C = chinese_remainder_theorem(for_C_i, for_n_i); 
 
 
 }
