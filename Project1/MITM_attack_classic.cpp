@@ -98,7 +98,7 @@ int main(){
 	vector<pair<cpp_int, cpp_int>> X;
 	vector<cpp_int> Te_converse;
 
-	auto start1 = chrono::high_resolution_clock::now();
+	// auto start1 = chrono::high_resolution_clock::now();
 
 	auto info = form_pair(n, e, l); 
 

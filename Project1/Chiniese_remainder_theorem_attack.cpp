@@ -5,6 +5,7 @@
 #include <sstream>
 #include <algorithm>
 #include <cmath>
+#include <chrono>
 #include <boost/multiprecision/cpp_int.hpp> 
 
 using namespace std;
@@ -125,10 +126,16 @@ int main() {
 	vector<cpp_int> for_C_i = { C1, C2, C3, C4, C5 }; 
 	vector<cpp_int> for_n_i = { n1, n2, n3, n4, n5 };
 
+	// auto start = chrono::high_resolution_clock::now();
+
 	cpp_int C = chinese_remainder_theorem(for_C_i, for_n_i); 
 	cpp_int M_with_pad = root(C, e);
 
 	cout << hex << M_with_pad << endl;
+
+	/*auto end = chrono::high_resolution_clock::now();
+	chrono::duration<double> diff = end - start;
+	cout << "Time SE: " << diff.count() << " s" << endl; */
 
 	cpp_int check = 1;
 	for (int i = 0; i < e; i++) {
@@ -141,5 +148,6 @@ int main() {
 	else {
 		cout << "Error" << endl;
 	}
+
 
 }
