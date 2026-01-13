@@ -77,6 +77,16 @@ pair<vector<pair<cpp_int, cpp_int>>, vector<cpp_int>> form_pair(cpp_int n, cpp_i
 	return make_pair(X, Te_converse);
 }
 
+void brute_force(cpp_int n, cpp_int e, cpp_int C, int l) {
+	cpp_int limit = pow(cpp_int(2), l);
+	for (cpp_int m = 1; m < limit; m++) {
+		if (powm(m, e, n) == C) {
+			cout << "M (Brute force): " << m << endl;
+			return;
+		}
+	}
+}
+
 int main(){
 	int l = 20;
 	cpp_int e("65537");
